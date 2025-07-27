@@ -1,0 +1,186 @@
+@import "./globals.scss";
+
+// Base card styles
+.card {
+  background-color: $card-bg;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  position: relative;
+
+  // Size variations
+  &.sm {
+    padding: 12px;
+  }
+
+  &.md {
+    padding: 16px;
+  }
+
+  &.lg {
+    padding: 24px;
+  }
+
+  // Variant styles
+  &.default {
+    border: 1px solid $card-border;
+    box-shadow: 0 1px 3px $shadow-sm;
+  }
+
+  &.outlined {
+    border: 1px solid $border-primary;
+    box-shadow: none;
+  }
+
+  &.elevated {
+    border: none;
+    box-shadow:
+      0 4px 6px $shadow-md,
+      0 1px 3px $shadow-sm;
+  }
+
+  &.filled {
+    border: none;
+    background-color: $bg-secondary;
+    box-shadow: none;
+  }
+
+  // Interactive states
+  &[role="button"] {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px $shadow-lg;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Card header
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $border-primary;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: $primary-50;
+  border-radius: 8px;
+  color: $primary;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.cardHeaderContent {
+  flex: 1;
+  min-width: 0;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 4px 0;
+    color: $text-primary;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0;
+    color: $text-secondary;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+}
+
+// Card body
+.cardBody {
+  flex: 1;
+
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $text-primary;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+  }
+
+  p {
+    color: $text-secondary;
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .metric {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.2;
+    margin: 8px 0;
+  }
+
+  .label {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+}
+
+// Card footer
+.cardFooter {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid $border-primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+}
