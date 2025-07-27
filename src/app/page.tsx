@@ -1,3 +1,5 @@
-export default function Home() {
-  return <p>Home</p>;
+import LoginPage from "@/modules/LoginPage";
+
+export default function Login() {
+  return <LoginPage />;
 }

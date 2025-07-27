@@ -3,7 +3,7 @@ import styles from "../../styles/Button.module.scss";
 import { ButtonProps } from "./types";
 import { useButtonHelpers } from "./utils";
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   children,
   variant = "primary",
   size = "md",
@@ -48,5 +48,3 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;
