@@ -1,0 +1,261 @@
+@import "./globals.scss";
+
+// Mixins using global colors
+@mixin transition($properties: all, $duration: 0.2s, $easing: ease) {
+  transition: $properties $duration $easing;
+}
+
+@mixin focus-ring($color: $primary, $shadow-color: $shadow-focus) {
+  border-color: $color;
+  box-shadow: 0 0 0 3px $shadow-color;
+}
+
+@mixin shake-animation {
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-2px);
+    }
+    75% {
+      transform: translateX(2px);
+    }
+  }
+  animation: shake 0.3s ease-in-out;
+}
+
+// Main styles using global variables
+.inputContainer {
+  margin-bottom: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $text-primary;
+  @include transition(color);
+
+  &.focused {
+    color: $primary;
+  }
+
+  &.error {
+    color: $error;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid $input-border;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: $input-bg;
+  color: $input-text;
+  outline: none;
+  @include transition();
+
+  &::placeholder {
+    color: $input-placeholder;
+  }
+
+  &:focus,
+  &.focused {
+    @include focus-ring($input-border-focus, $input-shadow-focus);
+  }
+
+  &.error {
+    @include focus-ring($input-border-error, $input-shadow-error);
+    @include shake-animation;
+  }
+
+  &.valid {
+    border-color: $input-border-success;
+  }
+
+  // Input type specific styles
+  &[type="email"] {
+    padding-right: 2.5rem;
+  }
+
+  &[type="password"] {
+    padding-right: 4rem;
+  }
+
+  // Disabled state
+  &:disabled {
+    background-color: $gray-100;
+    color: $text-disabled;
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    &::placeholder {
+      color: $gray-300;
+    }
+  }
+
+  // Responsive font size
+  @media (max-width: 768px) {
+    font-size: 16px; // Prevents zoom on iOS
+  }
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: $text-muted;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  @include transition(color);
+
+  &:hover {
+    color: $primary;
+  }
+
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.errorMessage {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: $error;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "⚠";
+    margin-right: 0.25rem;
+  }
+}
+
+// Dark mode using global dark theme variables
+@media (prefers-color-scheme: dark) {
+  .inputContainer {
+    .inputField {
+      background-color: $gray-800;
+      border-color: $gray-700;
+      color: $white;
+
+      &::placeholder {
+        color: $gray-500;
+      }
+
+      &:disabled {
+        background-color: $gray-900;
+        border-color: $gray-800;
+      }
+    }
+
+    .inputLabel {
+      color: $white;
+
+      &.focused {
+        color: $primary-light;
+      }
+    }
+
+    .passwordToggle {
+      color: $gray-400;
+
+      &:hover {
+        color: $primary-light;
+      }
+    }
+  }
+}
+
+// Size variations
+.inputContainer {
+  &.small {
+    .inputField {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    .inputLabel {
+      font-size: 0.8125rem;
+    }
+  }
+
+  &.large {
+    .inputField {
+      padding: 1rem 1.25rem;
+      font-size: 1.125rem;
+    }
+
+    .inputLabel {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Success state styling
+.inputField.valid {
+  border-color: $success;
+
+  &:focus {
+    @include focus-ring($success, rgba($success, 0.1));
+  }
+}
+
+// Custom focus styles for accessibility
+.inputField:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .inputField {
+    border-width: 3px;
+
+    &:focus,
+    &.focused {
+      border-color: $primary;
+      box-shadow:
+        0 0 0 2px $white,
+        0 0 0 4px $primary;
+    }
+
+    &.error {
+      border-color: $error;
+      box-shadow:
+        0 0 0 2px $white,
+        0 0 0 4px $error;
+    }
+  }
+
+  .passwordToggle {
+    text-decoration: underline;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
