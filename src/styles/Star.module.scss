@@ -1,0 +1,91 @@
+@import "./globals.scss";
+
+// Base star styles
+.star {
+  display: inline-block;
+  font-style: normal;
+  line-height: 1;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+
+  // Size variations
+  &.sm {
+    font-size: 1rem;
+  }
+
+  &.md {
+    font-size: 1.25rem;
+  }
+
+  &.lg {
+    font-size: 1.5rem;
+  }
+
+  // State variations
+  &.filled {
+    &.default {
+      color: $warning-500;
+    }
+
+    &.warning {
+      color: $warning-500;
+    }
+
+    &.primary {
+      color: $primary;
+    }
+
+    &.secondary {
+      color: $secondary;
+    }
+  }
+
+  &.empty {
+    &.default {
+      color: $gray-300;
+    }
+
+    &.warning {
+      color: $gray-300;
+    }
+
+    &.primary {
+      color: $gray-300;
+    }
+
+    &.secondary {
+      color: $gray-300;
+    }
+  }
+
+  // Interactive states
+  &[role="button"] {
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:focus {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+}
+
+// Star rating container
+.starRating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+
+  .star {
+    margin: 0;
+  }
+}
