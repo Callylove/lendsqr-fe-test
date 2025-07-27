@@ -1,0 +1,94 @@
+@import "../../styles/colors";
+
+// Base badge styles
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  line-height: 1;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+
+  // Size variations
+  &.sm {
+    padding: 2px 6px;
+    font-size: 0.625rem;
+  }
+
+  &.md {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  &.lg {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+  }
+
+  // Variant styles
+  &.active {
+    background-color: $success-100;
+    color: $success-700;
+    border: 1px solid $success-500;
+  }
+
+  &.inactive {
+    background-color: $gray-100;
+    color: $gray-600;
+    border: 1px solid $gray-300;
+  }
+
+  &.blacklisted {
+    background-color: $error-100;
+    color: $error-700;
+    border: 1px solid $error-500;
+  }
+
+  &.success {
+    background-color: $success-100;
+    color: $success-700;
+    border: 1px solid $success-500;
+  }
+
+  &.warning {
+    background-color: $warning-100;
+    color: $warning-600;
+    border: 1px solid $warning-500;
+  }
+
+  &.error {
+    background-color: $error-100;
+    color: $error-700;
+    border: 1px solid $error-500;
+  }
+
+  &.info {
+    background-color: $info-100;
+    color: $info-600;
+    border: 1px solid $info-500;
+  }
+
+  // Clickable states
+  &[role="button"] {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px $shadow-md;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
+  }
+}
