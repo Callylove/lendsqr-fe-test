@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useState } from "react";
 import { useField } from "formik";
-import styles from "./FormikInput.module.scss";
+import styles from "../../styles/FormikInput.module.scss";
 import { FormikInputProps } from "./types";
 import { useFormikInputHelpers } from "./utils";
 
-const FormikInput: React.FC<FormikInputProps> = ({
+export const FormikInput: React.FC<FormikInputProps> = ({
   label,
   type = "text",
   placeholder,
@@ -15,7 +17,7 @@ const FormikInput: React.FC<FormikInputProps> = ({
   containerClassName = "",
   ...props
 }) => {
-  const [field] = useField(props.name);
+  const [field, meta] = useField(props.name);
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [showPasswordToggle, setShowPasswordToggle] = useState<boolean>(false);
 
@@ -35,6 +37,7 @@ const FormikInput: React.FC<FormikInputProps> = ({
     showPasswordToggle,
     setShowPasswordToggle,
     field,
+    meta,
     type,
     showPassword,
     className,
@@ -91,5 +94,3 @@ const FormikInput: React.FC<FormikInputProps> = ({
     </div>
   );
 };
-
-export default FormikInput;
