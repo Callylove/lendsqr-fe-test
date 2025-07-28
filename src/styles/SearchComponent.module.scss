@@ -1,0 +1,129 @@
+@import "./globals.scss";
+
+.searchContainer {
+  position: relative;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: $gray-50;
+  border: 1px solid $border-primary;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $gray-100;
+  }
+
+  &:focus-within {
+    ring: 2px;
+    ring-color: rgba($info, 0.2);
+    ring-opacity: 1;
+  }
+
+  // Size variations
+  &.small {
+    height: 2rem;
+
+    .searchIcon {
+      left: 0.5rem;
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    .searchInput {
+      padding-left: 2rem;
+      padding-right: 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    .clearButton {
+      right: 0.5rem;
+    }
+  }
+
+  &.medium {
+    height: 2.5rem;
+
+    .searchIcon {
+      left: 0.75rem;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .searchInput {
+      padding-left: 2.5rem;
+      padding-right: 1rem;
+      font-size: 0.875rem;
+    }
+
+    .clearButton {
+      right: 0.75rem;
+    }
+  }
+
+  &.large {
+    height: 3rem;
+
+    .searchIcon {
+      left: 0.75rem;
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+
+    .searchInput {
+      padding-left: 2.75rem;
+      padding-right: 1rem;
+      font-size: 1rem;
+    }
+
+    .clearButton {
+      right: 0.75rem;
+    }
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  color: $gray-400;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: $text-secondary;
+
+  &::placeholder {
+    color: $gray-400;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.clearButton {
+  position: absolute;
+  padding: 0.25rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $gray-200;
+  }
+
+  svg {
+    width: 0.75rem;
+    height: 0.75rem;
+    color: $gray-400;
+  }
+}

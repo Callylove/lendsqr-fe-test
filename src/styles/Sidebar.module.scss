@@ -1,0 +1,236 @@
+@import "./globals.scss";
+
+// ============================================
+// SIDEBAR STYLES
+// ============================================
+
+.sidebarOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background-color: rgba($gray-600, 0.75);
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 16rem;
+  height: 100vh;
+  background-color: $nav-bg;
+  border-right: 1px solid $border-primary;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  @media (min-width: 1024px) {
+    position: static;
+    transform: translateX(0);
+    inset: 0;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid $border-primary;
+}
+
+.closeButton {
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $nav-hover;
+  }
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $text-primary;
+  }
+}
+
+.navigationContainer {
+  flex: 1;
+  padding: 0.75rem;
+  overflow-y: auto;
+}
+
+// ============================================
+// ORGANIZATION DROPDOWN STYLES
+// ============================================
+
+.dropdownContainer {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.dropdownTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: $text-secondary;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $nav-hover;
+  }
+
+  img {
+    margin-right: 0.75rem;
+  }
+}
+
+.dropdownContent {
+  flex: 1;
+  text-align: left;
+
+  .orgName {
+    font-weight: 500;
+    color: $text-primary;
+  }
+
+  .switchLabel {
+    font-size: 0.75rem;
+    color: $text-muted;
+  }
+}
+
+.chevronIcon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.2s ease;
+
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background-color: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 0.5rem;
+  box-shadow:
+    0 10px 15px -3px rgba($black, 0.1),
+    0 4px 6px -2px rgba($black, 0.05);
+  z-index: 50;
+}
+
+.menuContent {
+  padding: 0.25rem 0;
+}
+
+.orgOption {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: $text-secondary;
+
+  &:hover {
+    background-color: $nav-hover;
+  }
+
+  &.selected {
+    background-color: $info-50;
+    color: $info-600;
+  }
+
+  img {
+    margin-right: 0.75rem;
+  }
+}
+
+.optionContent {
+  flex: 1;
+  text-align: left;
+
+  .optionName {
+    font-weight: 500;
+  }
+
+  .optionType {
+    font-size: 0.75rem;
+    color: $text-muted;
+  }
+}
+
+.selectedIndicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: $info;
+  border-radius: 50%;
+}
+
+.addOrgSection {
+  border-top: 1px solid $gray-100;
+}
+
+.addOrgButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: $info;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $info-50;
+  }
+}
+
+.addIcon {
+  margin-right: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  border: 1px dashed lighten($info, 20%);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    color: lighten($info, 20%);
+    font-size: 0.75rem;
+  }
+}
