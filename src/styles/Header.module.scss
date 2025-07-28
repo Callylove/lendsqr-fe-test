@@ -1,0 +1,238 @@
+@import "./globals.scss";
+
+.header {
+  height: 4rem;
+  background-color: $nav-bg;
+  border-bottom: 1px solid $border-primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  @media (min-width: 1024px) {
+    padding: 0 1.5rem;
+  }
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.mobileMenuButton {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $nav-hover;
+  }
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $text-primary;
+  }
+}
+
+.mobileLogo {
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.logoIcon {
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg, $info 0%, $secondary 100%);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    color: $white;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+}
+
+.logoText {
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.desktopSearchContainer {
+  display: none;
+  flex: 1;
+  max-width: 32rem;
+  margin-left: 0;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+
+  @media (min-width: 1024px) {
+    margin-left: 2rem;
+  }
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobileSearchButton {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $nav-hover;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $text-secondary;
+  }
+}
+
+.docsLink {
+  display: none;
+  font-size: 0.875rem;
+  color: $info;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $info-600;
+  }
+
+  @media (min-width: 640px) {
+    display: block;
+  }
+}
+
+.notificationButton {
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $nav-hover;
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $text-secondary;
+  }
+}
+
+.notificationBadge {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: $error;
+  border-radius: 50%;
+}
+
+.userMenuContainer {
+  position: relative;
+}
+
+.userMenuTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $nav-hover;
+  }
+}
+
+.userName {
+  display: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $text-secondary;
+
+  @media (min-width: 640px) {
+    display: block;
+  }
+}
+
+.userMenuChevron {
+  width: 1rem;
+  height: 1rem;
+  color: $text-muted;
+}
+
+.userDropdownMenu {
+  position: absolute;
+  right: 0;
+  margin-top: 0.5rem;
+  width: 12rem;
+  background-color: $card-bg;
+  border-radius: 0.375rem;
+  box-shadow:
+    0 10px 15px -3px rgba($black, 0.1),
+    0 4px 6px -2px rgba($black, 0.05);
+  border: 1px solid $card-border;
+  padding: 0.25rem 0;
+  z-index: 50;
+}
+
+.userDropdownItem {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: $text-secondary;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $nav-hover;
+  }
+}
+
+.userDropdownDivider {
+  margin: 0.25rem 0;
+  border: none;
+  border-top: 1px solid $border-primary;
+}
