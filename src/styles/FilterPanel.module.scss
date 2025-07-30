@@ -1,0 +1,70 @@
+.filterPanel {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.filterGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filterActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.resetButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+  }
+}
+
+.filterButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #06b6d4;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #0891b2;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .filterGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .filterActions {
+    justify-content: stretch;
+
+    .resetButton,
+    .filterButton {
+      flex: 1;
+    }
+  }
+}

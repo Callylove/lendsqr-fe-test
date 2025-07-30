@@ -6,7 +6,7 @@ import { user } from "@/constants";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
 import { getActiveNavigationItem } from "./utils";
-import styles from "./DashboardLayout.module.scss";
+import styles from "../../styles/DashboardLayout.module.scss";
 import { LayoutProps } from "./types";
 
 const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
